@@ -71,7 +71,9 @@ public class MainActivity extends AppCompatActivity
                 && resultCode != RESULT_OK
                 && response != null
                 && response.getErrorCode() == ErrorCodes.NO_NETWORK) {
-            
+        }
+        else if (resultCode == RESULT_OK && requestCode == RC_SIGN_IN) {
+
         }
     }
 
