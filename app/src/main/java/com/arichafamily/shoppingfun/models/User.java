@@ -10,7 +10,7 @@ public class User {
 
     private String uid;
     private String displayName;
-    private String profileImage;
+    private String profileImage = "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png";
 
     public User() {
 

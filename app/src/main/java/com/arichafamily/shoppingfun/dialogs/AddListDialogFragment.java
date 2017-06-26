@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.arichafamily.shoppingfun.R;
+import com.arichafamily.shoppingfun.models.User;
 import com.arichafamily.shoppingfun.models.UserList;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -75,9 +76,10 @@ public class AddListDialogFragment extends DialogFragment {
                 .child(currentUser.getUid())
                 .push();
         //3) create a new UserList Model
+        User u = new User(currentUser);
         UserList list = new UserList(etListName.getText().toString(),
                 currentUser.getUid(),
-                currentUser.getPhotoUrl().toString(),
+                u.getProfileImage(),
                 newUserListRowRef.getKey());
         //4) ref.setValue(userList)
         newUserListRowRef.setValue(list).addOnSuccessListener(new OnSuccessListener<Void>() {
