@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.arichafamily.shoppingfun.fragments.UserListFragment;
 import com.arichafamily.shoppingfun.models.User;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
@@ -119,7 +120,10 @@ public class MainActivity extends AppCompatActivity
 
     //We have a user!
     private void initWithUser() {
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, new UserListFragment())
+                .commit();
     }
 
 
