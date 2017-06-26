@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/shopping_cart"
+    android:background="@drawable/s_cart"
     tools:context="com.arichafamily.shoppingfun.dialogs.AddListDialogFragment">
 
     <!-- TODO: Update blank fragment layout -->
