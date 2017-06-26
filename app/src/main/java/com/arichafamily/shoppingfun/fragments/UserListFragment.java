@@ -57,22 +57,7 @@ public class UserListFragment extends Fragment {
 
     @OnClick(R.id.fabAddUserList)
     public void onFabAddUserClicked() {
-        //1) ref the user -> userID
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser == null)
-        {
-            Log.e("Tomer", "No User!");
-            return; //No User -> No DB
-        }
-        //2) listID = ref UserListTable -> UID -> push
-        DatabaseReference newUserListRowRef = FirebaseDatabase.getInstance()
-                .getReference("UserLists")
-                .child(currentUser.getUid())
-                .push();
-        //3) create a new UserList Model
-        UserList list = new UserList();
         AddListDialogFragment dialog = new AddListDialogFragment();
         dialog.show(getChildFragmentManager(), "AddUserListDialog");
-        //4) ref.setValue(userList)
     }
 }
