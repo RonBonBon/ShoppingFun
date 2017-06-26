@@ -9,10 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.arichafamily.shoppingfun.R;
 import com.arichafamily.shoppingfun.dialogs.AddListDialogFragment;
 import com.arichafamily.shoppingfun.models.UserList;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -59,5 +62,29 @@ public class UserListFragment extends Fragment {
     public void onFabAddUserClicked() {
         AddListDialogFragment dialog = new AddListDialogFragment();
         dialog.show(getChildFragmentManager(), "AddUserListDialog");
+    }
+
+
+    public static class UserListAdapter extends FirebaseRecyclerAdapter<UserList, UserListAdapter.UserListViewHolder> {
+        Fragment fragment;
+
+        @Override
+        protected void populateViewHolder(UserListAdapter.UserListViewHolder viewHolder, UserList model, int position) {
+
+        }
+    }
+
+
+    public static class UserListViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivProfile;
+        TextView tvListName;
+        FloatingActionButton fabShare;
+
+        public UserListViewHolder(View itemView) {
+            super(itemView);
+            ivProfile = (ImageView) itemView.findViewById(R.id.ivProfile);
+            tvListName = (TextView) itemView.findViewById(R.id.tvListName);
+            fabShare = (FloatingActionButton) itemView.findViewById(R.id.fabShare);
+        }
     }
 }
